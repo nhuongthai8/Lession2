@@ -16,7 +16,6 @@ class app{
         }
         require_once "./mvc/controllers/".$this->controller.".php";
 
-        // create an instance of the controller class
         $controller = new $this->controller();
 
         //xử lý action
@@ -30,7 +29,6 @@ class app{
         //xử lý params
         $this->params = $arr?array_values($arr):[];
 
-        // call the method on the controller instance
         call_user_func_array([$controller,$this->action],$this->params);
     }
 
